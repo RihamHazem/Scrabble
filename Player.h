@@ -12,6 +12,8 @@ using namespace std;
 
 static const int PLAYER_TIES_SIZE = 7;
 
+// want to acess totalTies for user func get 
+// what mean player id ?!! and value of it?!
 class Player {
     int myTies[27];
     int totalTies = 0;
