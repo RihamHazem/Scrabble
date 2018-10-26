@@ -31,7 +31,7 @@ int main() {
     cout << board;
     cout << "----------------------------------------------\n";
     Judge judge = Judge(bag);
-    Move move; move.word = "RIHAM"; move.direction = 0; move.x = 7; move.y = 4;
+    Move move; move.word = "RIHAM"; move.direction = 2; move.x = 4; move.y = 7;
     judge.applyMove(move, board, player1);
 //    int posX, posY, tie;
 //    while (true) {

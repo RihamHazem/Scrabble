@@ -37,7 +37,7 @@ int Judge::applyMove(const Move &move, Board &board, Player &player) {
     } else if (move.direction == UP) {
         // up
         int cnt = 0;
-        while (cnt >= 0) {
+        while (cnt < word.size()) {
             int tie = int(word[cnt]-'A');
             if (board.putTieMove(x, y, tie)) {
                 player.playTie(tie);
