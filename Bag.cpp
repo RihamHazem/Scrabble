@@ -3,30 +3,32 @@
 //
 
 #include "Bag.h"
+
 void Bag::initBag() {
-    for (char i='A'; i <= 'Z'; i++) {
-        for (int j = 0; j < pieces[i]; j++) {
-            bag.push_back(new Tie(i, scores[i]));
-        }
+    for (char i=0; i <= 26; i++) {
+        bag[i] += pieces[i];
     }
-//    this represents the blank ties
-    bag.push_back(new Tie('-', scores['-']));
-    bag.push_back(new Tie('-', scores['-']));
 }
 
 int Bag::bagLen() {
-    return (int)bag.size();
+    return bagSize;
 }
 
-Tie* Bag::getTie(int index) {
-    Tie* myTie = bag[index];
-    bag.erase(bag.begin()+index);
-    return myTie;
+int Bag::removeTie(int index) {
+    if (bag[index] == 0) return -1; // check that this char exists
+    bag[index]--, bagSize--;
+    return scores[index];
+}
+
+int Bag::getTieScore(int index) {
+    return scores[index];
 }
 
 // a friend function for printing the bag
 ostream& operator<<(ostream& os, Bag const& myObj) {
-    for (Tie* b: myObj.bag) {
-        cout << b << "\t";
+    int cnt = 0;
+    for (int b: myObj.bag) {
+        os << "( char=" << char(cnt+'A') << ", count=" << b << ", score=" << myObj.scores[cnt++] << " )\t";
     }
+    return os << endl;
 }

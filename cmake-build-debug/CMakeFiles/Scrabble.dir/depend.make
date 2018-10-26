@@ -11,9 +11,11 @@ CMakeFiles/Scrabble.dir/Board.cpp.o: ../Tie.h
 
 CMakeFiles/Scrabble.dir/Player.cpp.o: ../Player.cpp
 CMakeFiles/Scrabble.dir/Player.cpp.o: ../Player.h
+CMakeFiles/Scrabble.dir/Player.cpp.o: ../Tie.h
 
 CMakeFiles/Scrabble.dir/main.cpp.o: ../Bag.h
 CMakeFiles/Scrabble.dir/main.cpp.o: ../Board.h
+CMakeFiles/Scrabble.dir/main.cpp.o: ../Player.h
 CMakeFiles/Scrabble.dir/main.cpp.o: ../Tie.h
 CMakeFiles/Scrabble.dir/main.cpp.o: ../main.cpp
 

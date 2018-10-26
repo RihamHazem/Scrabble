@@ -8,7 +8,7 @@ Board::Board() {
     memset(multiplier, 0, sizeof multiplier);
     for (auto &i: board) {
         for (auto &j: i) {
-            j = nullptr;
+            j = -1;
         }
     }
 }
@@ -37,54 +37,67 @@ void Board::initBoard() {
 
 ostream& operator<<(ostream& os, Board const& myObj) {
     for (auto &i : myObj.board) {
-        for (Tie* j : i) {
-            os << j << " ";
+        for (int j : i) {
+            os << char(j+'A') << " ";
         }
         os << endl;
     }
     return os;
 }
 
-bool Board::putTie(pair<int, int> pos, Tie *tie) {
-    if (board[pos.first][pos.second] != nullptr) return false;
-    board[pos.first][pos.second] = tie;
+bool Board::putFirstTie(int tie) {
+    if (board[starPos][starPos] != -1) return false;
+    board[starPos][starPos] = tie;
     return true;
 }
 
-string Board::getHorizontalWord(pair<int, int> pos) {
+bool Board::putTie(int posX, int posY, int tie) {
+    if (board[posX][posY] != -1 || !isValidMove(posX, posY, tie)) return false;
+    board[posX][posY] = tie;
+    return true;
+}
+
+bool Board::isValidMove(int posX, int posY, int tie) {
+    board[posX][posY] = tie;
+    string horizontalWord = getHorizontalWord(posX, posY), verticalWord = getVerticalWord(posX, posY);
+    cout << endl << horizontalWord << " " << verticalWord << endl;
+    // call the dictionary module to make sure that horizontal and vertical words are correct
+    // and make sure that the current tie is appended to at least one another tie
+    if ((horizontalWord.size() > 1 || verticalWord.size() > 1) && isValidWords(horizontalWord, verticalWord))
+        return true;
+    board[posX][posY] = -1;
+    return false;
+}
+
+string Board::getHorizontalWord(int posX, int posY) {
     string horizontalWord;
-    int r = pos.first, c = pos.second;
-    while (c >= 0 && board[r][c] != nullptr) {
-        horizontalWord = board[r][c]->tie_char + horizontalWord;
+    int r = posX, c = posY;
+    // if it's a blank tie it should be handled to be replaced by a suitable char
+    while (c >= 0 && board[r][c] != -1) {
+        horizontalWord = char(board[r][c]+'A') + horizontalWord;
         c--;
     }
-    c = pos.second + 1;
-    while (c < BOARD_SIZE && board[r][c] != nullptr) {
-        horizontalWord += board[r][c]->tie_char;
+    c = posY + 1;
+    while (c < BOARD_SIZE && board[r][c] != -1) {
+        horizontalWord += char(board[r][c]+'A');
         c++;
     }
     return horizontalWord;
 }
 
-string Board::getVerticalWord(pair<int, int> pos) {
+string Board::getVerticalWord(int posX, int posY) {
     string verticalWord;
-    int r = pos.first, c = pos.second;
-    while (r >= 0 && board[r][c] != nullptr) {
-        verticalWord = board[r][c]->tie_char + verticalWord;
+    int r = posX, c = posY;
+    while (r >= 0 && board[r][c] != -1) {
+        verticalWord = char(board[r][c]+'A') + verticalWord;
         r--;
     }
-    r = pos.first+1;
-    while (r < BOARD_SIZE && board[r][c] != nullptr) {
-        verticalWord += board[r][c]->tie_char;
+    r = posX+1;
+    while (r < BOARD_SIZE && board[r][c] != -1) {
+        verticalWord += char(board[r][c]+'A');
         r++;
     }
     return verticalWord;
-}
-
-bool Board::isValidMove(pair<int, int> pos, Tie *tie) {
-    string horizontalWord = getHorizontalWord(pos), verticalWord = getVerticalWord(pos);
-    // call the dictionary module to make sure that horizontal and vertical words are correct
-    return isValidWords(horizontalWord, verticalWord);
 }
 
 bool Board::isValidWords(string& horWord, string& verWord) {

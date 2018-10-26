@@ -13,12 +13,13 @@ using namespace std;
 static const int PLAYER_TIES_SIZE = 7;
 
 class Player {
-    vector<Tie*> myTies;
+    int myTies[27];
+    int totalTies = 0;
     int playerId;
 public:
     Player(int playerId);
-    bool initPlayer(vector<Tie*> const& ties);
-    bool addTie(Tie* tie);
+    bool addTie(int tie);
+    bool playTie(int tie);
     friend ostream& operator<<(ostream& os, Player const& myObj);
 };
 

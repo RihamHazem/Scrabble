@@ -4,28 +4,30 @@
 
 #include "Player.h"
 
-Player::Player(int playerId) : playerId(playerId) {}
+Player::Player(int playerId) : playerId(playerId) {
+    memset(myTies, 0, sizeof myTies);
+}
 
-bool Player::initPlayer(vector<Tie*> const& ties) {
-    if (ties.size() > PLAYER_TIES_SIZE) return false;
-    for (Tie* t: ties) t->setPlayerId(playerId);
-
-    myTies = ties;
+bool Player::addTie(int tie) {
+    if (totalTies >= PLAYER_TIES_SIZE) return false;
+    myTies[tie]++;
+    totalTies++;
     return true;
 }
 
-bool Player::addTie(Tie* tie) {
-    if (myTies.size() >= PLAYER_TIES_SIZE) return false;
-    tie->setPlayerId(playerId);
-    myTies.push_back(tie);
+bool Player::playTie(int tie) {
+    if (myTies[tie] <= 0) return false; // the player doesn't have any ties yet
+    myTies[tie]--;
+    totalTies--;
     return true;
 }
-
 
 ostream& operator<<(ostream& os, Player const& myObj) {
     os << "\nPlayer: " << myObj.playerId << "\t ties: ";
-    for (auto &i : myObj.myTies) {
-        os << i << " ";
+    for (int i = 0; i < 27; i++) {
+        if (myObj.myTies[i] != 0) {
+            os << "( char=" << char(i+'A') << ", count=" << myObj.myTies[i] << " ) ";
+        }
     }
     os << endl;
     return os;

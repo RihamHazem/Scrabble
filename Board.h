@@ -19,7 +19,8 @@ static const int _2xL_SIZE = 24;
 class Board {
 
     int multiplier[BOARD_SIZE][BOARD_SIZE];
-    Tie* board[BOARD_SIZE][BOARD_SIZE];
+    int board[BOARD_SIZE][BOARD_SIZE];
+    int starPos = 8;
     pair<int, int>_3xW[_3xW_SIZE] = {{1, 1}, {8, 1}, {15, 1}, {1, 8},
                                      {1, 15}, {8, 15}, {15, 15}};
     pair<int, int> _2xW[_2xW_SIZE] = {{2, 2}, {3, 3}, {4, 4}, {5, 5},
@@ -42,10 +43,11 @@ public:
     Board();
     void initBoard();
     friend ostream& operator<<(ostream& os, Board const& myObj);
-    bool putTie(pair<int, int> pos, Tie *tie);
-    bool isValidMove(pair<int, int> pos, Tie* tie);
-    string getHorizontalWord(pair<int, int> pos);
-    string getVerticalWord(pair<int, int> pos);
+    bool putFirstTie(int tie);
+    bool putTie(int posX, int posY, int tie);
+    bool isValidMove(int posX, int posY, int tie);
+    string getHorizontalWord(int posX, int posY);
+    string getVerticalWord(int posX, int posY);
     bool isValidWords(string& horWord, string& verWord);
 };
 

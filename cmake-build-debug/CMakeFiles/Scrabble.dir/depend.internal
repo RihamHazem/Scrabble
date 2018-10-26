@@ -12,8 +12,10 @@ CMakeFiles/Scrabble.dir/Board.cpp.o
 CMakeFiles/Scrabble.dir/Player.cpp.o
  /home/riham/CLionProjects/Scrabble/Player.cpp
  /home/riham/CLionProjects/Scrabble/Player.h
+ /home/riham/CLionProjects/Scrabble/Tie.h
 CMakeFiles/Scrabble.dir/main.cpp.o
  /home/riham/CLionProjects/Scrabble/Bag.h
  /home/riham/CLionProjects/Scrabble/Board.h
+ /home/riham/CLionProjects/Scrabble/Player.h
  /home/riham/CLionProjects/Scrabble/Tie.h
  /home/riham/CLionProjects/Scrabble/main.cpp
