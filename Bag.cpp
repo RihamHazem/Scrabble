@@ -5,9 +5,6 @@
 #include "Bag.h"
 
 void Bag::initBag() {
-    for (char i=0; i <= 26; i++) {
-        bag[i] += pieces[i];
-    }
 }
 
 int Bag::bagLen() {
