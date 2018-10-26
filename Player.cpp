@@ -23,7 +23,7 @@ bool Player::playTie(int tie) {
 }
 
 ostream& operator<<(ostream& os, Player const& myObj) {
-    os << "\nPlayer: " << myObj.playerId << "\t ties: ";
+    os << "\nPlayer: " << myObj.playerId << "\ttotal number of ties: " << myObj.totalTies << "\t ties: ";
     for (int i = 0; i < 27; i++) {
         if (myObj.myTies[i] != 0) {
             os << "( char=" << char(i+'A') << ", count=" << myObj.myTies[i] << " ) ";

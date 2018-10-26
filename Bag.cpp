@@ -4,8 +4,7 @@
 
 #include "Bag.h"
 
-void Bag::initBag() {
-}
+void Bag::initBag() {}
 
 int Bag::bagLen() {
     return bagSize;
