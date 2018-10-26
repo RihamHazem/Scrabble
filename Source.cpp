@@ -41,10 +41,10 @@ double radom_rack(Bag & bag, Player &  opponent) {
     while (opponent.getTotalTies() < 7 && tot) {////// for omnia
         bool x = false;
         int r = rand() % 27;
-        while (!bag.get(r)) {//// for omnia
+        while (!bag.getTieCount(r)) {//// for omnia
             r = rand() % 27;
         }
-        p = p * bag.get(r) * 1.0 / tot;/////for omnia
+        p = p * bag.getTieCount(r) * 1.0 / tot;/////for omnia
         bag.removeTie(r);
         tot--;
         opponent.addTie(r);

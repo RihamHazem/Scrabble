@@ -111,6 +111,9 @@
 		<Unit filename="/home/riham/CLionProjects/Scrabble/Player.h">
 			<Option target="Scrabble"/>
 		</Unit>
+		<Unit filename="/home/riham/CLionProjects/Scrabble/Source.cpp">
+			<Option target="Scrabble"/>
+		</Unit>
 		<Unit filename="/home/riham/CLionProjects/Scrabble/main.cpp">
 			<Option target="Scrabble"/>
 		</Unit>

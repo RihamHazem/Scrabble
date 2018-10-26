@@ -22,6 +22,8 @@ public:
     int bagLen();
     // it removes a tie from the bag and returns its score
     int removeTie(int index);
+    // get Tie count
+    int getTieCount(int index);
     int getTieScore(int index);
     // overriding the cout operator
     friend ostream& operator<<(ostream& os, Bag const& myObj);

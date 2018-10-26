@@ -231,6 +231,33 @@ Player.cpp.s:
 	$(MAKE) -f CMakeFiles/Scrabble.dir/build.make CMakeFiles/Scrabble.dir/Player.cpp.s
 .PHONY : Player.cpp.s
 
+Source.o: Source.cpp.o
+
+.PHONY : Source.o
+
+# target to build an object file
+Source.cpp.o:
+	$(MAKE) -f CMakeFiles/Scrabble.dir/build.make CMakeFiles/Scrabble.dir/Source.cpp.o
+.PHONY : Source.cpp.o
+
+Source.i: Source.cpp.i
+
+.PHONY : Source.i
+
+# target to preprocess a source file
+Source.cpp.i:
+	$(MAKE) -f CMakeFiles/Scrabble.dir/build.make CMakeFiles/Scrabble.dir/Source.cpp.i
+.PHONY : Source.cpp.i
+
+Source.s: Source.cpp.s
+
+.PHONY : Source.s
+
+# target to generate assembly for a file
+Source.cpp.s:
+	$(MAKE) -f CMakeFiles/Scrabble.dir/build.make CMakeFiles/Scrabble.dir/Source.cpp.s
+.PHONY : Source.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -279,6 +306,9 @@ help:
 	@echo "... Player.o"
 	@echo "... Player.i"
 	@echo "... Player.s"
+	@echo "... Source.o"
+	@echo "... Source.i"
+	@echo "... Source.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

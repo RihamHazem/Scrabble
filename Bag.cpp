@@ -16,6 +16,10 @@ int Bag::removeTie(int index) {
     return scores[index];
 }
 
+int Bag::getTieCount(int index) {
+    return bag[index];
+}
+
 int Bag::getTieScore(int index) {
     return scores[index];
 }
