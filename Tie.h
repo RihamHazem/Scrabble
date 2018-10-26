@@ -11,15 +11,20 @@ using namespace std;
 struct Tie {
     char tie_char;
     int score;
+    int playerId = -1;
 
     Tie(char tc, int s) {
         tie_char = tc;
         score = s;
     }
 
+    void setPlayerId(int pid) {
+        playerId = pid;
+    }
+
     friend ostream& operator<<(ostream& os, Tie* myObj) {
         if (myObj == nullptr) return os << "NULL";
-        return os << "(" << myObj->tie_char << ", " << myObj->score << ")";
+        return os << "( tie_char=" << myObj->tie_char << ", score=" << myObj->score << ", playerId=" << myObj->playerId << ")";
     }
 };
 
