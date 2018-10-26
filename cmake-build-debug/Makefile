@@ -177,6 +177,33 @@ Board.cpp.s:
 	$(MAKE) -f CMakeFiles/Scrabble.dir/build.make CMakeFiles/Scrabble.dir/Board.cpp.s
 .PHONY : Board.cpp.s
 
+Judge.o: Judge.cpp.o
+
+.PHONY : Judge.o
+
+# target to build an object file
+Judge.cpp.o:
+	$(MAKE) -f CMakeFiles/Scrabble.dir/build.make CMakeFiles/Scrabble.dir/Judge.cpp.o
+.PHONY : Judge.cpp.o
+
+Judge.i: Judge.cpp.i
+
+.PHONY : Judge.i
+
+# target to preprocess a source file
+Judge.cpp.i:
+	$(MAKE) -f CMakeFiles/Scrabble.dir/build.make CMakeFiles/Scrabble.dir/Judge.cpp.i
+.PHONY : Judge.cpp.i
+
+Judge.s: Judge.cpp.s
+
+.PHONY : Judge.s
+
+# target to generate assembly for a file
+Judge.cpp.s:
+	$(MAKE) -f CMakeFiles/Scrabble.dir/build.make CMakeFiles/Scrabble.dir/Judge.cpp.s
+.PHONY : Judge.cpp.s
+
 Player.o: Player.cpp.o
 
 .PHONY : Player.o
@@ -246,6 +273,9 @@ help:
 	@echo "... Board.o"
 	@echo "... Board.i"
 	@echo "... Board.s"
+	@echo "... Judge.o"
+	@echo "... Judge.i"
+	@echo "... Judge.s"
 	@echo "... Player.o"
 	@echo "... Player.i"
 	@echo "... Player.s"

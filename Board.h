@@ -18,9 +18,10 @@ static const int _2xL_SIZE = 24;
 // func close or variable mean all board off 
 class Board {
 
-    int multiplier[BOARD_SIZE][BOARD_SIZE];
+    int multiplier_letter[BOARD_SIZE][BOARD_SIZE];
+    int multiplier_word[BOARD_SIZE][BOARD_SIZE];
     int board[BOARD_SIZE][BOARD_SIZE];
-    int starPos = 8;
+    int starPos = 7;
     pair<int, int>_3xW[_3xW_SIZE] = {{1, 1}, {8, 1}, {15, 1}, {1, 8},
                                      {1, 15}, {8, 15}, {15, 15}};
     pair<int, int> _2xW[_2xW_SIZE] = {{2, 2}, {3, 3}, {4, 4}, {5, 5},
@@ -45,10 +46,13 @@ public:
     friend ostream& operator<<(ostream& os, Board const& myObj);
     bool putFirstTie(int tie);
     bool putTie(int posX, int posY, int tie);
+    bool putTieMove(int posX, int posY, int tie);
     bool isValidMove(int posX, int posY, int tie);
     string getHorizontalWord(int posX, int posY);
     string getVerticalWord(int posX, int posY);
     bool isValidWords(string& horWord, string& verWord);
+    int getMultiplier(int posX, int posY);
+    bool close();
 };
 
 

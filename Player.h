@@ -21,6 +21,7 @@ class Player {
 public:
     Player(int playerId);
     bool addTie(int tie);
+    int getTotalTies();
     bool playTie(int tie);
     friend ostream& operator<<(ostream& os, Player const& myObj);
 };

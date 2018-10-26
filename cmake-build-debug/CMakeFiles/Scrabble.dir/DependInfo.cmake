@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/riham/CLionProjects/Scrabble/Bag.cpp" "/home/riham/CLionProjects/Scrabble/cmake-build-debug/CMakeFiles/Scrabble.dir/Bag.cpp.o"
   "/home/riham/CLionProjects/Scrabble/Board.cpp" "/home/riham/CLionProjects/Scrabble/cmake-build-debug/CMakeFiles/Scrabble.dir/Board.cpp.o"
+  "/home/riham/CLionProjects/Scrabble/Judge.cpp" "/home/riham/CLionProjects/Scrabble/cmake-build-debug/CMakeFiles/Scrabble.dir/Judge.cpp.o"
   "/home/riham/CLionProjects/Scrabble/Player.cpp" "/home/riham/CLionProjects/Scrabble/cmake-build-debug/CMakeFiles/Scrabble.dir/Player.cpp.o"
   "/home/riham/CLionProjects/Scrabble/main.cpp" "/home/riham/CLionProjects/Scrabble/cmake-build-debug/CMakeFiles/Scrabble.dir/main.cpp.o"
   )

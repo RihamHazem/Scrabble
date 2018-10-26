@@ -5,7 +5,21 @@
 #include "Board.h"
 
 Board::Board() {
-    memset(multiplier, 0, sizeof multiplier);
+    for (auto& i: multiplier_letter) {
+        for (auto& j: i) {
+            j = 1;
+        }
+    }
+    for (auto& i: multiplier_letter) {
+        for (auto& j: i) {
+            cout << j;
+        }
+    }
+    for (auto& i: multiplier_word) {
+        for (auto& j: i) {
+            j = 1;
+        }
+    }
     for (auto &i: board) {
         for (auto &j: i) {
             j = -1;
@@ -16,22 +30,22 @@ Board::Board() {
 void Board::initBoard() {
 //    update board with 3xL
     for (auto &it: _3xL) {
-        multiplier[it.first-1][it.second-1] = 3;
+        multiplier_letter[it.first-1][it.second-1] = 3;
     }
 //    update board with 2xL
     for (auto &it: _2xL) {
-        multiplier[it.first-1][it.second-1] = 2;
+        multiplier_letter[it.first-1][it.second-1] = 2;
     }
 ////////////////////////////////////////////
 //    update board with 3xW
 //    it triples the score of the current word
     for (auto &it: _3xW) {
-        multiplier[it.first-1][it.second-1] = 30;
+        multiplier_word[it.first-1][it.second-1] = 3;
     }
 //    update board with 2xW
 //    it doubles the score of the current word
     for (auto it: _2xW) {
-        multiplier[it.first-1][it.second-1] = 20;
+        multiplier_word[it.first-1][it.second-1] = 2;
     }
 }
 
@@ -53,6 +67,12 @@ bool Board::putFirstTie(int tie) {
 
 bool Board::putTie(int posX, int posY, int tie) {
     if (board[posX][posY] != -1 || !isValidMove(posX, posY, tie)) return false;
+    board[posX][posY] = tie;
+    return true;
+}
+
+bool Board::putTieMove(int posX, int posY, int tie) {
+    if (board[posX][posY] != -1) return false;
     board[posX][posY] = tie;
     return true;
 }
@@ -105,3 +125,11 @@ bool Board::isValidWords(string& horWord, string& verWord) {
     return true;
 }
 
+int Board::getMultiplier(int posX, int posY) {
+    return multiplier_letter[posX][posY];
+}
+
+bool Board::close() {
+
+    return true;
+}

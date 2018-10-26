@@ -33,52 +33,52 @@ int  applyMove(const Move & move, Board & board,Player & p ) {
 }
 
 
-double ProbabilisticSearch(int idx,Board & board,bool game,Player ana,Player opponent,Bag & bag) {
-	if (board.close() || idx >= depth) {////////
-		return huristicBoard(board);
-		// mfrod azod 7aga hna huristic of board
-	}
-	double ret = 0;
-	for (int i = 0; i < S; ++i) {
-		double p;
-		if (game == 1) {
-			p = radom_rack(bag, opponent);
-			Move move = huristicMoves(board, opponent , ana);
-			int score=applyMove(move, board, opponent );
-			ret -= p*ProbabilisticSearch(idx + 1, board, 0,
-				ana, opponent, bag
-			) + score;
-		}
-		else {
-			p = radom_rack(bag, ana);
-			Move move = huristicMoves(board,ana, opponent);
-			int score = applyMove(move, board, ana);
-			ret += p*ProbabilisticSearch(idx + 1, board, 1,
-				ana, opponent, bag
-			) + score;
-		}
-
-	}
-	return ret;
-}
 
 double radom_rack(Bag & bag, Player &  opponent) {
-	double p = 1.0;
-	srand(time(NULL));
-	int tot = bag.bagLen();
-	while (opponent.get() < 7&&tot) {////// for omnia
-		bool x = false;
-		int r = rand() % 27;
-		while (!bag.get(r)) {//// for omnia
-			r = rand() % 27;
-		}
-		p = p* bag.get(r) * 1.0 / tot;/////for omnia
-		bag.removeTie(r);
-		tot--;
-		opponent.addTie(r);
-		
-	}
-	return p;
+    double p = 1.0;
+    srand(time(NULL));
+    int tot = bag.bagLen();
+    while (opponent.getTotalTies() < 7 && tot) {////// for omnia
+        bool x = false;
+        int r = rand() % 27;
+        while (!bag.get(r)) {//// for omnia
+            r = rand() % 27;
+        }
+        p = p * bag.get(r) * 1.0 / tot;/////for omnia
+        bag.removeTie(r);
+        tot--;
+        opponent.addTie(r);
+
+    }
+    return p;
+}
+
+double ProbabilisticSearch(int idx,Board & board,bool game,Player ana,Player opponent,Bag & bag) {
+    if (board.close() || idx >= depth) {////////
+        return huristicBoard(board);
+        // mfrod azod 7aga hna huristic of board
+    }
+    double ret = 0;
+    for (int i = 0; i < S; ++i) {
+        double p;
+        if (game == 1) {
+            p = radom_rack(bag, opponent);
+            Move move = huristicMoves(board, opponent, ana);
+            int score = applyMove(move, board, opponent);
+            ret -= p * ProbabilisticSearch(idx + 1, board, 0,
+                                           ana, opponent, bag
+            ) + score;
+        } else {
+            p = radom_rack(bag, ana);
+            Move move = huristicMoves(board, ana, opponent);
+            int score = applyMove(move, board, ana);
+            ret += p * ProbabilisticSearch(idx + 1, board, 1,
+                                           ana, opponent, bag
+            ) + score;
+        }
+
+    }
+    return ret;
 }
 // ana mb3otly acctions klaha tnf3 tt3ml rihaaaaaaaaaaaaaaaaaam
 Move nextPlay(const vector<Move>&plays, Board board, Bag bag , Player ana ) {

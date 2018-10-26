@@ -26,6 +26,36 @@ bits/stdc++.h
 Tie.h
 /home/riham/CLionProjects/Scrabble/Tie.h
 
+/home/riham/CLionProjects/Scrabble/Judge.cpp
+Judge.h
+/home/riham/CLionProjects/Scrabble/Judge.h
+Bag.h
+/home/riham/CLionProjects/Scrabble/Bag.h
+
+/home/riham/CLionProjects/Scrabble/Judge.h
+Bag.h
+/home/riham/CLionProjects/Scrabble/Bag.h
+Board.h
+/home/riham/CLionProjects/Scrabble/Board.h
+Player.h
+/home/riham/CLionProjects/Scrabble/Player.h
+Move.h
+/home/riham/CLionProjects/Scrabble/Move.h
+
+/home/riham/CLionProjects/Scrabble/Move.h
+iostream
+-
+cmath
+-
+map
+-
+vector
+-
+string
+-
+sstream
+-
+
 /home/riham/CLionProjects/Scrabble/Player.cpp
 Player.h
 /home/riham/CLionProjects/Scrabble/Player.h
@@ -49,4 +79,6 @@ Board.h
 /home/riham/CLionProjects/Scrabble/Board.h
 Player.h
 /home/riham/CLionProjects/Scrabble/Player.h
+Judge.h
+/home/riham/CLionProjects/Scrabble/Judge.h
 

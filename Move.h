@@ -5,6 +5,7 @@
 #include<string>
 #include <sstream>
 using namespace std;
+
 struct Move {
 	string word;
 	int x, y;

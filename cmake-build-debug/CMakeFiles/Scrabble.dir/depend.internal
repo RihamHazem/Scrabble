@@ -9,6 +9,14 @@ CMakeFiles/Scrabble.dir/Board.cpp.o
  /home/riham/CLionProjects/Scrabble/Board.cpp
  /home/riham/CLionProjects/Scrabble/Board.h
  /home/riham/CLionProjects/Scrabble/Tie.h
+CMakeFiles/Scrabble.dir/Judge.cpp.o
+ /home/riham/CLionProjects/Scrabble/Bag.h
+ /home/riham/CLionProjects/Scrabble/Board.h
+ /home/riham/CLionProjects/Scrabble/Judge.cpp
+ /home/riham/CLionProjects/Scrabble/Judge.h
+ /home/riham/CLionProjects/Scrabble/Move.h
+ /home/riham/CLionProjects/Scrabble/Player.h
+ /home/riham/CLionProjects/Scrabble/Tie.h
 CMakeFiles/Scrabble.dir/Player.cpp.o
  /home/riham/CLionProjects/Scrabble/Player.cpp
  /home/riham/CLionProjects/Scrabble/Player.h
@@ -16,6 +24,8 @@ CMakeFiles/Scrabble.dir/Player.cpp.o
 CMakeFiles/Scrabble.dir/main.cpp.o
  /home/riham/CLionProjects/Scrabble/Bag.h
  /home/riham/CLionProjects/Scrabble/Board.h
+ /home/riham/CLionProjects/Scrabble/Judge.h
+ /home/riham/CLionProjects/Scrabble/Move.h
  /home/riham/CLionProjects/Scrabble/Player.h
  /home/riham/CLionProjects/Scrabble/Tie.h
  /home/riham/CLionProjects/Scrabble/main.cpp

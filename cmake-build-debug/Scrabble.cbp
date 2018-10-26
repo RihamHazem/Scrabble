@@ -96,13 +96,19 @@
 		<Unit filename="/home/riham/CLionProjects/Scrabble/Board.h">
 			<Option target="Scrabble"/>
 		</Unit>
+		<Unit filename="/home/riham/CLionProjects/Scrabble/Judge.cpp">
+			<Option target="Scrabble"/>
+		</Unit>
+		<Unit filename="/home/riham/CLionProjects/Scrabble/Judge.h">
+			<Option target="Scrabble"/>
+		</Unit>
+		<Unit filename="/home/riham/CLionProjects/Scrabble/Move.h">
+			<Option target="Scrabble"/>
+		</Unit>
 		<Unit filename="/home/riham/CLionProjects/Scrabble/Player.cpp">
 			<Option target="Scrabble"/>
 		</Unit>
 		<Unit filename="/home/riham/CLionProjects/Scrabble/Player.h">
-			<Option target="Scrabble"/>
-		</Unit>
-		<Unit filename="/home/riham/CLionProjects/Scrabble/Tie.h">
 			<Option target="Scrabble"/>
 		</Unit>
 		<Unit filename="/home/riham/CLionProjects/Scrabble/main.cpp">
