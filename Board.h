@@ -15,7 +15,7 @@ static const int _3xW_SIZE = 7;
 static const int _2xW_SIZE = 12;
 static const int _3xL_SIZE = 12;
 static const int _2xL_SIZE = 24;
-
+// func close or variable mean all board off 
 class Board {
 
     int multiplier[BOARD_SIZE][BOARD_SIZE];
