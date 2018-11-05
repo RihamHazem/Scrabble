@@ -62,18 +62,21 @@ ostream& operator<<(ostream& os, Board const& myObj) {
 bool Board::putFirstTie(int tie) {
     if (board[starPos][starPos] != -1) return false;
     board[starPos][starPos] = tie;
+    ties_count++;
     return true;
 }
 
 bool Board::putTie(int posX, int posY, int tie) {
     if (board[posX][posY] != -1 || !isValidMove(posX, posY, tie)) return false;
     board[posX][posY] = tie;
+    ties_count++;
     return true;
 }
 
 bool Board::putTieMove(int posX, int posY, int tie) {
     if (board[posX][posY] != -1) return false;
     board[posX][posY] = tie;
+    ties_count++;
     return true;
 }
 
@@ -133,7 +136,6 @@ int Board::getMultiplierWord(int posX, int posY) {
     return multiplier_word[posX][posY];
 }
 
-bool Board::close() {
-
-    return true;
+int Board::tiesCount() {
+    return ties_count;
 }
