@@ -17,10 +17,10 @@
 #define DOWN    3
 
 class Judge {
-    Bag bag;
 public:
     Judge(Bag b): bag(b) {}
-    int applyMove(const Move &move, Board &board, Player &player);
+    int applyMove(const Move &move, Board &board, Player &player, Bag &bag);
+    bool isClosed(Board &board);
 };
 
 
