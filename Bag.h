@@ -22,9 +22,11 @@ public:
     int removeTie(int index);
     // get Tie count
     int getTieCount(int index);
+    // get Tie score
     int getTieScore(int index);
     // overriding the cout operator
     friend ostream& operator<<(ostream& os, Bag const& myObj);
+    // equal operator overloading
     Bag& operator=(Bag const& myObj);
 };
 

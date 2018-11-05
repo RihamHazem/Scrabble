@@ -5,14 +5,10 @@
 #include "Board.h"
 
 Board::Board() {
+    // init multiplier letter as 1
     for (auto& i: multiplier_letter) {
         for (auto& j: i) {
             j = 1;
-        }
-    }
-    for (auto& i: multiplier_letter) {
-        for (auto& j: i) {
-            cout << j;
         }
     }
     for (auto& i: multiplier_word) {

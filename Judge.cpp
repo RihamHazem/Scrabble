@@ -7,7 +7,7 @@
 int Judge::applyMove(const Move &move, Board &board, Player &player, Bag &bag) {
     int score = 0, x = move.x, y = move.y;
     string word = move.word;
-    int wordMultiplier = false;
+    int wordMultiplier = 1;
     if (move.direction == RIGHT) {
         // right
         int cnt = 0;
