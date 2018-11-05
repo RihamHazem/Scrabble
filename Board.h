@@ -51,7 +51,8 @@ public:
     string getHorizontalWord(int posX, int posY);
     string getVerticalWord(int posX, int posY);
     bool isValidWords(string& horWord, string& verWord);
-    int getMultiplier(int posX, int posY);
+    int getMultiplierLetter(int posX, int posY);
+    int getMultiplierWord(int posX, int posY);
     bool close();
 };
 
