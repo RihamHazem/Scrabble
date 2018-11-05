@@ -16,8 +16,6 @@ class Bag {
     int scores[27] = {1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10, 0};
 
 public:
-    // initialize the bag vector
-    void initBag();
     // returns the length of the bag
     int bagLen();
     // it removes a tie from the bag and returns its score
@@ -27,6 +25,7 @@ public:
     int getTieScore(int index);
     // overriding the cout operator
     friend ostream& operator<<(ostream& os, Bag const& myObj);
+    Bag& operator=(Bag const& myObj);
 };
 
 

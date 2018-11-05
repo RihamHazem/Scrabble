@@ -54,7 +54,7 @@ double radom_rack(Bag & bag, Player &  opponent) {
 }
 
 double ProbabilisticSearch(int idx,Board & board,bool game,Player ana,Player opponent,Bag & bag) {
-    if (board.close() || idx >= depth) {////////
+    if (board.tiesCount()>=100 || idx >= depth) {////////
         return huristicBoard(board);
         // mfrod azod 7aga hna huristic of board
     }

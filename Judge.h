@@ -18,7 +18,6 @@
 
 class Judge {
 public:
-    Judge(Bag b): bag(b) {}
     int applyMove(const Move &move, Board &board, Player &player, Bag &bag);
     bool isClosed(Board &board);
 };

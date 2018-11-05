@@ -7,21 +7,20 @@
 
 
 int main() {
-    Bag bag = Bag();
-    bag.initBag();
-    cout << bag;
+    Bag bag1 = Bag();
+    Bag bag2 = Bag();
 
     Board board = Board();
     board.initBoard();
     cout << board;
     cout << "----------------------------------------------\n";
-    cout << bag;
+    cout << bag1;
     cout << "----------------------------------------------\n";
 
     Player player1 = Player(1);
     int rand_7[7] = {2, 3, 6, 19, 'R'-'A', 'I'-'A', 26};
     for (int i = 0; i < 7; ++i) {
-        bag.removeTie(rand_7[i]);
+        bag1.removeTie(rand_7[i]);
         if (!player1.addTie(rand_7[i])) cout << "How false?";
     }
     cout << player1;
@@ -30,9 +29,13 @@ int main() {
     board.putFirstTie(0);
     cout << board;
     cout << "----------------------------------------------\n";
-    Judge judge = Judge(bag);
+    Judge judge = Judge();
     Move move; move.word = "RIHAM"; move.direction = 2; move.x = 4; move.y = 7;
-    judge.applyMove(move, board, player1);
+    judge.applyMove(move, board, player1, bag1);
+    cout << bag1;
+    cout << bag2;
+    bag2 = bag1;
+    cout << bag2;
 //    int posX, posY, tie;
 //    while (true) {
 //        cout << "Please, Enter the position you want play (X, Y) and the tie value. your current info is: ";
