@@ -125,8 +125,12 @@ bool Board::isValidWords(string& horWord, string& verWord) {
     return true;
 }
 
-int Board::getMultiplier(int posX, int posY) {
+int Board::getMultiplierLetter(int posX, int posY) {
     return multiplier_letter[posX][posY];
+}
+
+int Board::getMultiplierWord(int posX, int posY) {
+    return multiplier_word[posX][posY];
 }
 
 bool Board::close() {
