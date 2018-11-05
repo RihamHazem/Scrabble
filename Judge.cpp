@@ -8,7 +8,7 @@
 int Judge::applyMove(const Move &move, Board &board, Player &player) {
     int score = 0, x = move.x, y = move.y;
     string word = move.word;
-    bool wordMultiplier = false;
+    int wordMultiplier = false;
     if (move.direction == RIGHT) {
         // right
         int cnt = 0;
@@ -17,9 +17,9 @@ int Judge::applyMove(const Move &move, Board &board, Player &player) {
             int tie = int(word[cnt]-'A');
             if (board.putTieMove(x, y, tie)) {
                 player.playTie(tie);
-                score += board.getMultiplierLetter(x, y) * bag.getTieScore(tie);
-                wordMultiplier |= board.getMultiplierWord(x, y);
             }
+            score += board.getMultiplierLetter(x, y) * bag.getTieScore(tie);
+            wordMultiplier *= board.getMultiplierWord(x, y);
             y++;
             cnt++;
         }
@@ -30,8 +30,9 @@ int Judge::applyMove(const Move &move, Board &board, Player &player) {
             int tie = int(word[cnt]-'A');
             if (board.putTieMove(x, y, tie)) {
                 player.playTie(tie);
-                score += board.getMultiplierLetter(x, y) * bag.getTieScore(tie);
             }
+            score += board.getMultiplierLetter(x, y) * bag.getTieScore(tie);
+            wordMultiplier *= board.getMultiplierWord(x, y);
             y--;
             cnt--;
         }
@@ -42,8 +43,9 @@ int Judge::applyMove(const Move &move, Board &board, Player &player) {
             int tie = int(word[cnt]-'A');
             if (board.putTieMove(x, y, tie)) {
                 player.playTie(tie);
-                score += board.getMultiplierLetter(x, y) * bag.getTieScore(tie);
             }
+            score += board.getMultiplierLetter(x, y) * bag.getTieScore(tie);
+            wordMultiplier *= board.getMultiplierWord(x, y);
             x++, cnt++;
         }
 
@@ -54,10 +56,17 @@ int Judge::applyMove(const Move &move, Board &board, Player &player) {
             int tie = int(word[cnt]-'A');
             if (board.putTieMove(x, y, tie)) {
                 player.playTie(tie);
-                score += board.getMultiplierLetter(x, y) * bag.getTieScore(tie);
             }
+            score += board.getMultiplierLetter(x, y) * bag.getTieScore(tie);
+            wordMultiplier *= board.getMultiplierWord(x, y);
             x--, cnt--;
         }
     }
-    return score;
+    
+    return score * wordMultiplier;
+}
+
+bool Judge::isClosed() {
+    // count of the ties in board is 100 the it's closed
+    return board.tiesCount() >= 100;
 }
