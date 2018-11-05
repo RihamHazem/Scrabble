@@ -3,9 +3,8 @@
 //
 
 #include "Judge.h"
-#include "Bag.h"
 
-int Judge::applyMove(const Move &move, Board &board, Player &player) {
+int Judge::applyMove(const Move &move, Board &board, Player &player, Bag &bag) {
     int score = 0, x = move.x, y = move.y;
     string word = move.word;
     int wordMultiplier = false;
@@ -66,7 +65,7 @@ int Judge::applyMove(const Move &move, Board &board, Player &player) {
     return score * wordMultiplier;
 }
 
-bool Judge::isClosed() {
+bool Judge::isClosed(Board &board) {
     // count of the ties in board is 100 the it's closed
     return board.tiesCount() >= 100;
 }
