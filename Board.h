@@ -22,6 +22,7 @@ class Board {
     int multiplier_word[BOARD_SIZE][BOARD_SIZE];
     int board[BOARD_SIZE][BOARD_SIZE];
     int starPos = 7;
+    int ties_count = 0;
     pair<int, int>_3xW[_3xW_SIZE] = {{1, 1}, {8, 1}, {15, 1}, {1, 8},
                                      {1, 15}, {8, 15}, {15, 15}};
     pair<int, int> _2xW[_2xW_SIZE] = {{2, 2}, {3, 3}, {4, 4}, {5, 5},
@@ -53,7 +54,7 @@ public:
     bool isValidWords(string& horWord, string& verWord);
     int getMultiplierLetter(int posX, int posY);
     int getMultiplierWord(int posX, int posY);
-    bool close();
+    int tiesCount();
 };
 
 
