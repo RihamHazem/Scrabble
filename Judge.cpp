@@ -21,8 +21,7 @@ int Judge::applyMove(const Move &move, Board &board, Player &player, Bag &bag) {
 			}
 			score += board.getMultiplierLetter(x, y) * bag.getTieScore(tie);
 			wordMultiplier *= board.getMultiplierWord(x, y);
-			y++;
-			cnt++;
+			y++, cnt++;
 		}
 	} else if (move.direction == UP) {
 		// up
@@ -55,8 +54,7 @@ int Judge::applyMoveMin(const Move &move, Board &board, Bag &bag) {
 			int tie = int(word[cnt]-'A');
 			score += board.getMultiplierLetter(x, y) * bag.getTieScore(tie);
 			wordMultiplier *= board.getMultiplierWord(x, y);
-			y++;
-			cnt++;
+			y++, cnt++;
 		}
 	} else if (move.direction == UP) {
 		// up

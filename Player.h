@@ -19,11 +19,16 @@ class Player {
 	int myTies[27];
 	int totalTies = 0;
 	int playerId;
+	int score = 0;
 public:
 	Player(int playerId);
 	bool addTie(int tie);
 	int getTotalTies();
 	bool playTie(int tie);
+	int getScore();
+	void addScore(int scr);
+	void putScore(int newScr);
+	int getTie(int pos);
 	friend ostream& operator<<(ostream& os, Player const& myObj);
 };
 
