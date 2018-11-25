@@ -30,8 +30,9 @@ int main() {
     cout << board;
     cout << "----------------------------------------------\n";
     Judge judge = Judge();
-    Move move; move.word = "RIHAM"; move.direction = 2; move.x = 4; move.y = 7;
-    judge.applyMove(move, board, player1, bag1);
+    Move move; move.word = "RIHAM"; move.direction = 0; move.x = 0; move.y = 0;
+    cout << judge.applyMoveMin(move, board, bag1);
+//    judge.applyMove(move, board, player1, bag1);
     cout << bag1;
     cout << bag2;
     bag2 = bag1;

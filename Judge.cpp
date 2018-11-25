@@ -24,19 +24,6 @@ int Judge::applyMove(const Move &move, Board &board, Player &player, Bag &bag) {
 			y++;
 			cnt++;
 		}
-	} else if (move.direction == LEFT) {
-		// left
-		int cnt = word.size()-1;
-		while (cnt >= 0) {
-			int tie = int(word[cnt]-'A');
-			if (board.putTieMove(x, y, tie)) {
-				player.playTie(tie);
-			}
-			score += board.getMultiplierLetter(x, y) * bag.getTieScore(tie);
-			wordMultiplier *= board.getMultiplierWord(x, y);
-			y--;
-			cnt--;
-		}
 	} else if (move.direction == UP) {
 		// up
 		int cnt = 0;
@@ -50,18 +37,37 @@ int Judge::applyMove(const Move &move, Board &board, Player &player, Bag &bag) {
 			x++, cnt++;
 		}
 
-	} else {
-		// down
-		int cnt = word.size()-1;
-		while (cnt >= 0) {
+	}
+
+	return score * wordMultiplier;
+}
+
+int Judge::applyMoveMin(const Move &move, Board &board, Bag &bag) {
+	int score = 0, x = move.x, y = move.y;
+	string word = move.word;
+	if (move.switchMove || (int) word.size() == 0) return 0;
+	int wordMultiplier = 1;
+	if (move.direction == RIGHT) {
+		// right
+		int cnt = 0;
+		while (cnt < word.size()) {
+			// if it's successfully put then it was empty place, so remove it from the player
 			int tie = int(word[cnt]-'A');
-			if (board.putTieMove(x, y, tie)) {
-				player.playTie(tie);
-			}
 			score += board.getMultiplierLetter(x, y) * bag.getTieScore(tie);
 			wordMultiplier *= board.getMultiplierWord(x, y);
-			x--, cnt--;
+			y++;
+			cnt++;
 		}
+	} else if (move.direction == UP) {
+		// up
+		int cnt = 0;
+		while (cnt < word.size()) {
+			int tie = int(word[cnt]-'A');
+			score += board.getMultiplierLetter(x, y) * bag.getTieScore(tie);
+			wordMultiplier *= board.getMultiplierWord(x, y);
+			x++, cnt++;
+		}
+
 	}
 
 	return score * wordMultiplier;
